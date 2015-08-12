@@ -11,7 +11,7 @@ Users can see the number of comments on each topic and can vote on which topics 
 __________________
 ###Wire Frame:
 
-(./img/wireframe.pdf)
+![alt text](./img/wireframe.pdf "Wire Frame")
 
 ____________________
 ###ERB:

@@ -18,10 +18,10 @@ app.use(express.static('references'));
 app.set('view_engine', 'ejs');
 
 app.get("/", function(req, res){
-  res.redirect("/home");
+  res.redirect("/topics");
 });
 
-app.get("/home", function(req, res){
+app.get("/topics", function(req, res){
   db.all("SELECT * FROM topics", function(err, rows){
     if (err) {
       throw err
@@ -31,12 +31,29 @@ app.get("/home", function(req, res){
   })
 });
 
-app.get('/home/new/topic', function(req, res){
+app.get('/topics/new', function(req, res){
+  console.log(req.cookies)
   res.render("new_topic.html.ejs");
 });
 
-app.post("/home", function(req, res){
-  db.run("INSERT INTO topics ()")
+app.post("/topics", function(req, res){
+  db.run("INSERT INTO topics (title, username, content, tags) VALUES (?,?,?,?)", req.body.title, req.cookies.username, req.body.content, req.body.tags, function(err){
+    if (err) {
+      throw err;
+    } else{
+      res.redirect('/topics');
+    }
+  })
+});
+
+app.get('/topics/:id', function(req, res){
+  db.get("SELECT * FROM topics WHERE id=?", req.params.id, function(err, topic){
+    if (err) {
+      throw err
+    } else{
+      res.render("show_topic.html.ejs", {topic:topic});
+    }
+  })
 })
 
 

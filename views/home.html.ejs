@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clever Criterion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+
+</head>
+<body>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/home">Home</a></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li><a href="/home/new/topic">Create New Topic</a></li>
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input type="text" placeholder="Find Tag">
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="/" class="alert button expand">Search Tags</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="right">
+      <li class="active"><a href="#" data-reveal-id="myModal">Set Username</a></li>
+    </ul>
+  </section>
+</nav>
+
+<% topics.forEach(function(topic){%>
+  <h1><%= topic.title%></h1> <p style="display:inline-block;"><%= topic.votes%></p>
+  <p><%= topic.username%></p>
+<%})%>
+
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="/foundation.min.js"></script>
+<script>
+  $(document).foundation();
+</script>
+
+</body>
+</html>

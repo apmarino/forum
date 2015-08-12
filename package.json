@@ -1,0 +1,28 @@
+{
+  "name": "forum",
+  "version": "1.0.0",
+  "description": "___________________ ### User Stories:",
+  "main": "forum.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apmarino/forum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apmarino/forum/issues"
+  },
+  "homepage": "https://github.com/apmarino/forum#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "ejs": "^2.3.3",
+    "express": "^4.13.3",
+    "method-override": "^2.3.5",
+    "request": "^2.60.0",
+    "require": "^2.4.20",
+    "sqlite3": "^3.0.10"
+  }
+}

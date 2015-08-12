@@ -16,5 +16,5 @@ __________________
 ____________________
 ###ERB:
 
-(./img/data.jpg)
+![alt text](./img/data.jpg "ERB")
 

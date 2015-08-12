@@ -8,7 +8,9 @@ var bodyParser = require('body-parser');
 var urlencodedBodyParser = bodyParser.urlencoded({extended: false});
 var methodOverride = require('method-override');
 var request = require("request");
+var cookieParser = require('cookie-parser')
 
+app.use(cookieParser())
 app.use(urlencodedBodyParser);
 app.use(methodOverride('_method'));
 app.use(express.static('references'));
@@ -27,6 +29,14 @@ app.get("/home", function(req, res){
       res.render("home.html.ejs", {topics:rows});
     }
   })
+});
+
+app.get('/home/new/topic', function(req, res){
+  res.render("new_topic.html.ejs");
+});
+
+app.post("/home", function(req, res){
+  db.run("INSERT INTO topics ()")
 })
 
 

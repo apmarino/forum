@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Topic</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+</head>
+<body>
+  <form action="/home" method="POST" id="topicForm">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" placeholder="Title">
+    <label for="content">Content:</label>
+    <textarea id="content" name="comment" form="topicForm" placeholder="Type Content Here"></textarea>
+    <label for="tags">Tags:</label>
+    <input id="tags" type="text" name="tags" placeholder="tags separated by commas">
+    <button>Submit Topic</button>
+  </form>
+</body>
+</html>

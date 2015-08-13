@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Clever Criterion</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
 
 </head>
 <body>
@@ -35,14 +36,23 @@
 </nav>
 
 <% topics.forEach(function(topic){%>
-  <h1><%= topic.title%></h1> <p style="display:inline-block;"><%= topic.votes%></p>
-  <p><%= topic.username%></p>
+  <div class="row">
+  <a href="/topics/<%=topic.id%>/voteup"> <li class="fa fa-thumbs-up"></li> </a>
+  <a href="/topics/<%=topic.id%>/votedown"> <li class="fa fa-thumbs-down"></li> </a>
+  <h1 class=" small-10 columns"> <a href="/topics/<%= topic.id%>"><%= topic.title%></a></h1> 
+  </div>
+  <div class="row">
+  <p class="small-1 columns"><%= %></p>
+  <p class="small-1 columns"><%= topic.votes%></p>
+  <p class=" small-2 large-4 columns"><%= topic.username%></p>
+  </div>
 <%})%>
 
 
 <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Set Your Username</h2>
-  <input type="text" class="username">
+
+  <input type="text" class="username" name="username" value="Anonymous<%= randomNum%>">
   <button class="usr-button">Set Username</button>
 
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>

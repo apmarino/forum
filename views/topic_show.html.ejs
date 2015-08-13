@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clever Criterion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+
+</head>
+<body>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/topics">Home</a></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li><a href="/topics/new">Create New Topic</a></li>
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-7 small-8 columns">
+            <input type="text" placeholder="Find Tag">
+          </div>
+          <div class="large-5 small-4 columns">
+            <a href="/" class="alert button expand">Search Tags</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+
+<h1><%= topic.title%></h1>
+<form action="/topic/<%= topic.id%>?_method=DELETE" method="POST">
+  <input type="text" name="username" style="display:none;" class="topic-user">
+  <button>Delete This Topic</button>
+</form>
+<h3><%= topic.content%></h3>
+<div>Votes: <%= topic.votes%>, Tags: <%= topic.tags%>, Username: <%= topic.username%></div>
+
+<br>
+<% comments.forEach(function(comment){%>
+<h4><%= comment.username%></h4>
+<p><%= comment.content%></p>
+<form action="/comment/<%= comment.comment_id%>/<%= topic.id%>?_method=DELETE" method="POST">
+ <input type="text" name="comment" style="display:none;" class="comment-user">
+ <button>Delete Comment</button> 
+</form>
+<%})%>
+
+<form action="/topics/<%=topic.id%>/newcomment" method="POST" id="commentForm">
+  <textarea id="content" name="comment" form="commentForm" placeholder="Type Comment Here"></textarea>
+  <button>Submit Comment</button>
+</form>
+
+
+
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="/foundation.min.js"></script>
+<script src="/home.js"></script>
+<script>
+  $(document).foundation();
+</script>
+
+</body>
+</html>

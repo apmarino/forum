@@ -42,7 +42,7 @@ app.get("/topics", function(req, res){
           Object.keys(commentObj).forEach(function(key){
             commentCount.push(commentObj[key].length)
           });
-          
+
           var randomNum = Math.ceil(Math.random()*999999);
           res.render("home.html.ejs", {topics:rows, randomNum:randomNum, commentCount:commentCount});
 
@@ -115,6 +115,18 @@ app.post("/topics/:id/newcomment", function(req, res){
     }
   })
 });
+
+app.get('/search', function(req, res){
+  var tags = req.query.tags.split(" ");
+  console.log(tags)
+  db.all("SELECT * FROM topics WHERE tags like ? OR tags LIKE ?", "%"+tags[0]+"%", "%"+tags[1]+"%", function(err, topics){
+    if (err) {
+      throw err
+    } else{
+      res.render("search.html.ejs", {topics:topics});
+    }
+  })
+})
 
 app.delete('/topic/:id', function(req, res){//delete topic
   db.get("SELECT username FROM topics WHERE id=?", req.params.id, function(err, user){

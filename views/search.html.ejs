@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Clever Criterion</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
   <link rel="stylesheet" href="/home.css">
-
 </head>
 <body>
-<div class="background-pic"> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Popcorn_-_Studio_-_2011.jpg" alt=""> </div>
-
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
@@ -30,11 +27,9 @@
         <a class="welcome">Welcome to the Clever Criterion a Movie Discussion Forum</a>
       </li>
     </ul>
-    <ul class="right">
-      <li class="active"><a href="#" data-reveal-id="myModal">Set Username</a></li>
-    </ul>
   </section>
 </nav>
+
 <% var divisions = 0%>
 <% topics.forEach(function(topic){%>
   <div class="<%if(divisions%2===0){%>grey-div<% divisions++}else if(divisions%2===1){%>blue-div<%divisions++}%>">
@@ -47,23 +42,10 @@
       </div>
     </div>
     <div class="row">
-    <p class="small-2 columns">Comments: <%= commentCount[topic.id] %></p>
     <p class=" small-2 large-4 columns"> User: <%= topic.username%></p>
     </div>
   </div>
 <%})%>
-
-
-
-
-<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Set Your Username</h2>
-
-  <input type="text" class="username" name="username" value="Anonymous<%= randomNum%>">
-  <button class="usr-button">Set Username</button>
-
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>

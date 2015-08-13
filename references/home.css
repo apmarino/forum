@@ -1,0 +1,24 @@
+.grey-div{
+  background-color: rgba(135, 135, 135, .55);
+  
+}
+.blue-div{
+  background-color: rgba(30, 95, 235, .55);
+
+}
+
+.welcome{
+  color: white;
+  font-size: 2em;
+}
+
+.background-pic{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  opacity: .4;
+  z-index: -1;
+}
+a{
+  color: black;
+}

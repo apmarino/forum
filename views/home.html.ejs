@@ -37,14 +37,16 @@
 
 <% topics.forEach(function(topic){%>
   <div class="row">
-  <a href="/topics/<%=topic.id%>/voteup"> <li class="fa fa-thumbs-up"></li> </a>
-  <a href="/topics/<%=topic.id%>/votedown"> <li class="fa fa-thumbs-down"></li> </a>
   <h1 class=" small-10 columns"> <a href="/topics/<%= topic.id%>"><%= topic.title%></a></h1> 
+    <div class="small-1 columns">
+      <a href="/topics/<%=topic.id%>/voteup"> <li class="fa fa-thumbs-up"></li> </a>
+      <a href="/topics/<%=topic.id%>/votedown"> <li class="fa fa-thumbs-down"></li> </a>
+      <p class=""><%= topic.votes%></p>
+    </div>
   </div>
   <div class="row">
-  <p class="small-1 columns"><%= %></p>
-  <p class="small-1 columns"><%= topic.votes%></p>
-  <p class=" small-2 large-4 columns"><%= topic.username%></p>
+  <p class="small-2 columns">Comments: <%= commentCount[topic.id] %></p>
+  <p class=" small-2 large-4 columns"> User: <%= topic.username%></p>
   </div>
 <%})%>
 

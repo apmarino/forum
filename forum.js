@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var urlencodedBodyParser = bodyParser.urlencoded({extended: false});
 var methodOverride = require('method-override');
 var request = require("request");
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
+var _ = require("underscore");
 
 app.use(cookieParser())
 app.use(urlencodedBodyParser);
@@ -26,8 +27,27 @@ app.get("/topics", function(req, res){
     if (err) {
       throw err
     } else{
-      var randomNum = Math.ceil(Math.random()*999999);
-      res.render("home.html.ejs", {topics:rows, randomNum:randomNum});
+      db.all("SELECT topic_id FROM comments;", function(req, ids){
+        if (err) {
+          throw err;
+        } else{
+          var idsArr =[];
+          ids.forEach(function(id){
+            idsArr.push(id.topic_id);
+          });
+          var commentObj = _.groupBy(idsArr, function(num){
+            return num;
+          });
+          var commentCount= [0];
+          Object.keys(commentObj).forEach(function(key){
+            commentCount.push(commentObj[key].length)
+          });
+          
+          var randomNum = Math.ceil(Math.random()*999999);
+          res.render("home.html.ejs", {topics:rows, randomNum:randomNum, commentCount:commentCount});
+
+        }
+      })
     }
   })
 });

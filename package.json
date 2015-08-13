@@ -24,6 +24,7 @@
     "method-override": "^2.3.5",
     "request": "^2.60.0",
     "require": "^2.4.20",
-    "sqlite3": "^3.0.10"
+    "sqlite3": "^3.0.10",
+    "underscore": "^1.8.3"
   }
 }

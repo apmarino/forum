@@ -79,6 +79,7 @@ app.get('/topics/new', function(req, res){
 });
 
 app.post("/topics", function(req, res){
+  console.log(req.body.content);
   db.run("INSERT INTO topics (title, username, content, tags) VALUES (?,?,?,?)", req.body.title, req.cookies.username, req.body.content, req.body.tags, function(err){
     if (err) {
       throw err;
@@ -98,7 +99,7 @@ app.get('/topics/:id', function(req, res){
         if (err) {
           throw err
         } else{
-
+          console.log(topic.content)
           res.render("topic_show.html.ejs", {topic:topic, comments:comments});
         }
       })

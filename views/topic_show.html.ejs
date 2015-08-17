@@ -35,14 +35,27 @@
   </section>
 </nav>
 
+<div class="row">
+  <h1 class="small-10 columns"><%= topic.title%></h1>
+  <div class="small-1 columns">
+    <a href="/topics/<%=topic.id%>/voteup"> <li class="fa fa-thumbs-up"></li> </a>
+    <a href="/topics/<%=topic.id%>/votedown"> <li class="fa fa-thumbs-down"></li> </a>
+    <p class=""><%= topic.votes%></p>
+  </div>
+</div>
+<div class="row">
+  <div class="small-6 columns">
+    <div>Votes: <%= topic.votes%>, Tags: <%= topic.tags%>, Username: <%= topic.username%></div>
+  </div> 
+  <div class="small-2 columns">
+    <form action="/topic/<%= topic.id%>?_method=DELETE" method="POST">
+      <input type="text" name="username" style="display:none;" class="topic-user">
+      <button>Delete This Topic</button>
+    </form>
+  </div>
+</div>
 
-<h1><%= topic.title%></h1>
-<form action="/topic/<%= topic.id%>?_method=DELETE" method="POST">
-  <input type="text" name="username" style="display:none;" class="topic-user">
-  <button>Delete This Topic</button>
-</form>
 <h3><%= topic.content%></h3>
-<div>Votes: <%= topic.votes%>, Tags: <%= topic.tags%>, Username: <%= topic.username%></div>
 
 <br>
 <% comments.forEach(function(comment){%>

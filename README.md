@@ -4,14 +4,14 @@ This project is a forum where a user can create different discussion topics and 
 ___________________
 ### User Stories:
 
-A user will see a list of topics already created by other users in the home page. If they wish to create a topics of their own they will be prompted to enter a username first. The username is not password protected. Anyone can use any username.
+A user will see a list of topics already created by other users in the home page. If they wish to create a topics of they can choose a username by clicking "Set Username" in the upper right corner. The username is not password protected. Anyone can use any username.
 
-Users can see the number of comments on each topic and can vote on which topics they like the most. Votes will *only* add to the total votes of the post (no downvoting).
+Users can see the number of comments on each topic and can vote on which topics they like the most and comment on any existing topic. 
 
 __________________
 ###Wire Frame:
 
-![alt text](./img/wireframe.pdf "Wire Frame")
+![alt text](./img/wireframe.jpg "Wire Frame")
 
 ____________________
 ###ERB:
